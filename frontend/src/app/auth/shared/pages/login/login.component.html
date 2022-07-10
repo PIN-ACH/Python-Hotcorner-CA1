@@ -1,0 +1,17 @@
+<div class="column is-flex is-justify-content-center	is-align-items-center is-align-content-center is-flex-grow-4"
+  data-aos="fade-up">
+  <section class="section is-medium">
+    <div class="card card-login p-4">
+      <app-login-form [loginForm]="loginForm"></app-login-form>
+      <!-- <h2 class="has-text-centered">
+        <a routerLink="/forgetPassword">Did you forget your password?</a>
+      </h2> -->
+      <div class="buttons is-justify-content-center">
+        <button (click)="login()" class="button is-rounded background-color-orange has-text-white is-size-5 m-3">Login</button>
+
+        <button routerLink="/signup" class="button is-rounded is-light is-size-5 m-3">Create account</button>
+      </div>
+
+    </div>
+  </section>
+</div>

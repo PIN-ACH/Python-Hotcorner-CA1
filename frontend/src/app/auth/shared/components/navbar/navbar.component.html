@@ -1,0 +1,69 @@
+<nav data-aos="fade-down" class="navbar px-6 background-color" role="navigation" aria-label="main navigation">
+
+  <div class="navbar-brand is-justify-content-center is-hidden-desktop 	is-align-content-center">
+    <a class="navbar-item" href="#">
+      <img class="logo-header" src="assets/logo.png">
+    </a>
+    <h1 class="title primary-text is-size-3 color-darkblue is-align-self-center">Hot Corner</h1>
+  </div>
+
+  <div class="navbar-brand is-hidden-touch">
+    <a class="navbar-item" href="#">
+      <img class="logo-header" src="assets/logo.png">
+    </a>
+    <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu pl-6">
+    <div class="navbar-start is-size-5">
+      <a href="#header" class="navbar-item">
+        Home
+      </a>
+      <a href="#menu" class="navbar-item">
+        Menu
+      </a>
+      <a href="#aboutus" class="navbar-item">
+        About us
+      </a>
+      <a href="#contact" class="navbar-item">
+        Contact us
+      </a>
+
+    </div>
+    <div class="navbar-end">
+      <div class="is-flex is-align-content-flex-start is-align-items-center">
+        <a routerLink="/order" class="m-3">
+          <i class="fa-solid fa-cart-shopping is-size-4 color-orange"></i>
+        </a>
+        <div *ngIf="this.isLogged==false" class="userInfo">
+          <a routerLink="/signup" class="button background-color-orange is-rounded has-text-white mr-2">
+            <strong>Create account</strong>
+          </a>
+          <a routerLink="/login" class="button is-rounded is-white">
+            Login
+          </a>
+        </div>
+
+        <div *ngIf="this.isLogged==true" class="card is-flex is-align-items-center p-2 m-3">
+          <div *ngIf="userData.urlImage!=null" class="media-left">
+            <figure class="image is-48x48">
+              <img class="is-rounded" [src]="userData.urlImage">
+            </figure>
+          </div>
+          <div class="media-content">
+            <a routerLink="/admin/home">
+              <p class="title is-4 color-darkblue">{{userData.name}}</p>
+            </a>
+          </div>
+          <a (click)="logout()" class="color-darkblue is-hidden-touch mt-3 ml-2" routerLink="/">
+            <i class="fa-solid fa-arrow-right-from-bracket is-size-4 "></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

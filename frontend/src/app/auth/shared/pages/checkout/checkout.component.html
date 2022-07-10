@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div data-aos="fade-right" data-aos-anchor-placement="top-center" class="hero-body space-top has-text-centered-mobile">
+  <p class="primary-text title is-1-desktop is-3-tablet is-size-1-mobile">
+    Payment methods
+  </p>
+</div>
+
+<h1 *ngIf="isOrder" class="subtitle is-size-5 has-text-centered" data-aos="zoom-in-up"> No products have been added yet.
+</h1>
+<div *ngIf="isOrder==true" class="is-flex is-justify-content-center" data-aos="zoom-in-up">
+  <button routerLink="/home" class="button is-rounded background-color-orange has-text-white is-size-5 m-3">Return to
+    menu</button>
+</div>
+<div *ngIf="isOrder==false" class="is-flex is-flex-wrap-wrap is-justify-content-center p-2" data-aos="fade-up"
+  data-aos-anchor-placement="top-center">
+  <div class="payment-item is-hidden">
+    <form action="https://checkout.wompi.co/p/" method="GET">
+      <input type="hidden" name="public-key" [value]=publicKey />
+      <input type="hidden" name="currency" value="COP" />
+      <input type="hidden" name="amount-in-cents" [value]=totalOrder />
+      <input type="hidden" name="reference" [value]=reference />
+      <input type="hidden" name="redirect-url" value="http://localhost:4200/bill" />
+      <button type="submit" class="pagos"></button>
+    </form>
+  </div>
+
+  <!-- <div class="payment-item">
+    <button (click)="payment(3)" class="payment borders box-shadow"
+      style="background-image:url('assets/wompi.jpg'); background-size:cover"></button>
+  </div> -->
+
+  <div class="payment-item">
+    <button (click)="payment(2)" class="payment borders box-shadow"
+      style="background-image:url('assets/cash.jpg'); background-size:cover"></button>
+  </div>
+
+  <!-- <div class="payment-item pb-5">
+    <button (click)="payment(1)" class="payment borders box-shadow"
+      style="background-image:url('assets/card.jpg'); background-size:cover"></button>
+  </div> -->
+</div>
+<app-navigation-bar></app-navigation-bar>

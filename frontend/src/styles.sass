@@ -1,0 +1,618 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bulma/css/bulma.css"
+// Import component
+//Variables for the colors
+$white : #FFFFFF
+$darkgray : #707070
+$color-background:#F2F2F2
+$lightgray : #AEAEAE
+$fields: #F2F2F2
+$orange : #F25D50
+$darkblue : #282E40
+$yellow : #FFD677
+$orangeHover : #fb2916
+$breakpoint:799px
+$breakpointSmall:667px
+$breakpointTabletInit:765px
+$breakpointTabletEnd:911px
+
+//Font Family
+
+$fontPrincipal:'Roboto'
+
+html
+  background-color:$color-background
+
+body
+  height: 100%
+  overflow-x: hidden
+  overflow-y: hidden
+
+#sidebar
+  height: 100vh
+  min-height: 100vh
+
+.sidebar
+  position: fixed
+  z-index: 1
+  width: 100%
+
+.content-pages
+  padding-left: 19rem
+
+// ------------- Colors -------------
+
+.background-color
+  background-color:$color-background
+
+a.navbar-item:hover
+  color: $orange
+
+.logo-header
+  max-height: 5.5rem !important
+
+.color-white
+  color: $white
+
+.color-white:hover
+  color:$orange
+
+.color-darkblue
+  color:$darkblue
+
+.color-darkblue-hover
+  color:$darkblue
+
+.color-orange
+  color:$orange
+
+.border-orange:focus
+  border-color: $orange
+
+.background-color-darkblue
+  background-color: $darkblue
+
+.button[disabled], fieldset[disabled] .button
+  background-color: $orange !important
+
+.background-color-orange
+  background-color: $orange
+  .background-color-orange:hover
+    background-color: $orangeHover
+
+
+// ------------- NAV -------------
+
+.navbar-burger
+  height: auto
+
+.navbar
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+
+.space-top
+  padding-top: 8rem
+
+// ------------- TOOLTIP GENERAL -------------
+
+.tooltip
+  position: relative
+  display: inline-block
+
+.tooltiptext
+  position: absolute
+  z-index: 1
+  bottom: 15px
+  left: 105%
+
+
+// ------------- GENERAL BORDERS  -------------
+.borders
+  border-radius:25px
+
+.borders-categories
+  border-radius:50%
+
+.info-primary
+  padding: 10rem
+
+.primary-text
+  font-family: 'Cormorant Garamond'
+  font-weight: 200
+  font-size: 4.3rem
+
+.card-login
+  border-radius: 25px
+
+.imagen-logo-login
+  width: 40%
+  margin-left: auto
+  margin-right: auto
+
+// ------------- ADMIN PAGES  -------------
+.info-padding
+  padding-left: 3rem
+  padding-top: 3rem
+.side-padding-home
+  padding-top: 3rem
+.side-padding
+  padding-top: 3rem
+  padding-right: 3rem
+
+.scroll-info
+  overflow: scroll
+  height: 100vh
+
+// ------------- PRODUCT PAGE  -------------
+.size-image
+  height: 96px
+  width: 96px
+
+.sidebar
+  border-top-right-radius: 10%
+  border-bottom-right-radius: 10%
+
+.image-burger
+  width: 80%
+
+.header-text
+  padding-left: 130px
+
+.round
+  border-radius: 15px
+
+.widthcard
+  flex: none
+  width: 16rem
+
+.widthcardcategory
+  flex: none
+  width: 16rem
+
+.widthcarduser
+  flex: none
+  width: 21.5rem
+
+.widthcardbill
+  flex: none
+  width: 24rem
+
+
+.borders-product-image
+  border-top-left-radius: 25px
+  border-top-right-radius: 25px
+
+.input-fields
+  background: $fields !important
+  border-color: $fields  !important
+
+.itemList
+  padding-top: 2rem
+  padding-left: 3rem
+
+.calendar
+  border-color: $fields !important
+  box-shadow:$fields !important
+
+.calendar, .grafics
+  background-color: $color-background
+
+.table-text
+  color: $darkblue
+  font-weight: 400
+
+.table-item
+  color: $darkblue
+  font-weight: 300
+
+.bill-print
+  margin-top: 7rem
+  background-image: url('./assets/rain_background.jpg')
+  width: 500px
+
+.bill-info
+  margin-top: 9rem
+
+.profile
+  margin-top: 13rem
+
+.profile-image
+  position: absolute
+  text-align: -webkit-center
+  bottom: 17rem
+  left: 0
+  right: 0
+  margin-left: auto
+  margin-right: auto
+  width: 100px
+
+.table-tax
+  text-align: -webkit-center
+
+.table
+  background-color: #2e2e2e00
+
+.modal-content, .modal-card
+  width: 600px
+
+.modal-content-product, .modal-card
+  width: 350px
+
+.highlight
+  position: absolute
+
+.closeModal
+  position: relative
+
+.slider-wrap
+  position: relative
+  overflow: hidden
+  height: 380px
+  width: 100%
+  text-align: center
+
+.slider-main
+  position: relative
+
+.item
+  position: relative
+  display: inline-block
+  width: 300px
+  height: 380px
+  margin: 0 12px
+
+.text
+  position: absolute
+
+.prev
+  position: absolute
+  top:160px
+  left:30px
+  transform: translate(-50%,-50%)
+
+.next
+  position: absolute
+  top:160px
+  right: -20px
+  transform: translate(-50%,-50%)
+
+.chart-bar-monthly-sales
+  height:350px
+
+
+.newsletter
+  border-bottom-left-radius: 5rem
+  border-bottom-right-radius: 15rem
+  border-top-right-radius: 5rem
+  border-top-left-radius: 15rem
+  box-shadow: 0px 10px 20px 20px rgb(62 62 62 / 13%)
+
+.box-shadow
+  box-shadow: 15px 15px 12px 3px rgb(82 82 82 / 28%)
+
+.container-nav
+  display: none
+  position: absolute
+
+.top-content-product
+  padding-left: 0.5rem
+  padding-right: 0.5rem
+
+.product
+  padding-left: 3rem
+  padding-right: 3rem
+
+.form-contact
+  padding: 40px
+
+.div-total
+  flex-grow: 1 !important
+
+.button-additional:after:clicked
+  background-color: #ffe08a !important
+  border-color: transparent !important
+  color:  rgba(0,0,0,.7) !important
+
+.bill
+  justify-content: center
+  margin-top: 3rem
+  width: 600px
+
+.centered
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+.suggestion
+  position: absolute !important
+  z-index: 1
+  padding-left: 15px
+  padding-right: 15px
+  width: auto
+
+.background-suggestion
+  bottom: 0
+  left: 0
+  position: absolute
+  right: 0
+  top: 0
+
+.div-header
+  padding-top: 2.7rem !important
+
+.payment
+  border-color: white
+  cursor: pointer
+  padding:150px
+
+.payment-item
+    margin: 30px
+
+.margin-side
+  margin-left: 3rem
+  margin-right: 3rem
+
+// ------------- this is the sidebar just for tablet  -------------
+.tablet-sidebar
+  display: none
+
+.padding-side
+  padding: 1.5rem
+
+@media screen and (min-width: 1024px) and (max-width: 1185px)
+
+  .content-pages
+    padding-left: 6rem
+
+  .column.is-1, .column.is-1-tablet
+    flex: none
+    width: 7.33333%
+
+  .tablet-sidebar
+    display: flex
+    width: 7%
+
+  .size-icon
+    font-size: 23px
+
+  .navbar-item
+    padding-top: 1rem
+    padding-bottom: 1rem
+
+  .itemList
+    padding-left:0.5rem
+
+  .info-padding
+    padding-left: 0.5rem
+    padding-right:1.3rem
+    padding-top: 1rem
+
+  .widthcard
+    flex: none
+    width: 12rem
+
+  .widthcardbill
+    width: 19.3rem
+
+  .widthcardcategory
+    flex: none
+    width: 15rem
+
+  .widthcarduser
+    width: 19rem
+
+  .side-padding
+    padding-top: 1rem
+    padding-right: 1rem
+
+  .margin-side
+    margin-left: 0rem
+    margin-right: 0rem
+
+  .padding-side
+    padding: 0.5rem
+
+  .info-grafic
+    width: 60% !important
+  .side-grafic
+    width: 30% !important
+
+
+@media screen and ( max-width: 1420px )
+  .div-header
+    padding-top: 8rem !important
+
+
+@media screen and ( max-width: $breakpoint )
+  #sidebar
+    height: 3.5rem !important
+    min-height:3.5rem !important
+
+  .scroll-info
+    overflow: scroll
+    height: 100vh
+
+  .content-pages
+    padding-top: 5rem
+    padding-left: 0
+
+  .navbar-menu
+    padding-left: 30px
+    padding-right: 30px
+
+  .blocker
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    content: ' '
+    background: rgba(0, 0, 0, 0.5)
+
+  .profile
+    margin-top: 11rem
+  .profile-image
+    position: absolute
+    text-align: -webkit-center
+    top: -5rem
+    left: 0
+    right: 0
+    margin-left: auto
+    margin-right: auto
+    width: 100px
+
+  .stack-top
+    position: absolute !important
+    z-index: 1
+    left:4.5rem
+
+  .itemList
+    padding-top: 0.5rem
+    padding-left: 1rem
+
+  .navbar-item
+    display: flex
+
+  .suggestion
+    position: absolute !important
+    z-index: 1
+    width: 50%
+
+  // ------------- ADMIN PAGES  -------------
+  .info-padding
+    padding-left: 1.3rem
+    padding-right:1.3rem
+    padding-top: 1rem
+  // ------------- PRODUCT PAGE  -------------
+  .size-image
+    height: 64px
+    width: 64px
+  // ------------- BILL PAGE  -------------
+  .widthcardbill
+    flex: none
+    width: 23.5rem
+
+  .bill
+    justify-content: center
+    margin-top: 3rem
+    width: auto
+
+  .image-responsive
+    position: absolute
+    width: 95%
+    top: 0.5rem
+
+  .image-bill-responsive
+    position: absolute
+    width: 95%
+    top: 4.5rem
+
+  // ------------- CLIENT PAGE  -------------
+  .widthcarduser
+    flex: none
+    width: 12rem
+
+  .align-responsive
+    text-align: -webkit-center
+
+  .side-padding-home
+    padding-top: 1rem
+  .side-padding
+    padding-top: 1rem
+    padding-right: 1rem
+
+  .bill-print
+    width: 420px
+    padding-bottom: 4rem
+
+  .payment
+    cursor: pointer
+    padding:90px
+
+  .payment-item
+    margin: 4px
+
+  .logo-header
+    max-height: 3.5rem !important
+
+  .div-header
+    padding-top: 3.7rem !important
+
+  .header-text
+    padding-top: 30px
+    padding-left: 5px
+    padding-right: 5px
+
+  .product
+    padding-left: 0rem
+    padding-right: 0rem
+
+  .form-contact
+    padding: 0
+  .item
+    width: 260px
+  .prev
+    left:20px
+
+  .next
+    right: -20px
+
+  .widthcard
+    flex: none
+    width: 12rem
+
+  .widthcardcategory
+    flex: none
+    width: 8rem
+
+  .padding-categories
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+  .column
+    flex-grow: 0
+
+  .order-image
+    position: relative
+    width: 130px
+
+  .top-content-product
+    padding: 0
+
+  .container-nav
+    display: inline-block
+    position: fixed
+    bottom: 0
+    width: 100%
+    background-color: $darkblue
+    border-top-left-radius: 2rem
+    border-top-right-radius: 2rem
+
+  .navigationbar
+    position: relative
+    list-style-type: none
+    padding: 10px
+    height: 50px
+    justify-content: center
+
+  .navigationbar li
+    padding-left: 0.3rem
+    padding-right: 0.3rem
+
+  .nav-link
+    display: flex
+    flex-grow: 1
+    flex-direction: column
+    align-items: center
+    min-width: 50px
+    overflow: hidden
+    font-size: 1.6rem
+    white-space: nowrap
+    text-decoration: none
+
+  .nav-link a
+    display: none

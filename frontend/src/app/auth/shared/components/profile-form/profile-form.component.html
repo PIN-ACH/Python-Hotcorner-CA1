@@ -1,0 +1,110 @@
+<form [formGroup]="user">
+  <h1 class="title has-text-centered">Edit personal information</h1>
+  <div class="is-flex is-justify-content-center">
+    <figure *ngIf=" editImage!=null" class="image is-128x128 ">
+      <img routerLink="/home" class="is-rounded" [src]="editImage" alt="Placeholder image">
+    </figure>
+  </div>
+
+  <div class="is-justify-content-center file is-normal has-name pt-3">
+    <label class="file-label">
+      <input class="file-input" id="image" (change)="onFileChange($event)" type="file" name="resume"
+        accept="image/png, image/jpeg, image/jpg">
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Image
+        </span>
+      </span>
+      <span class="file-name">
+        {{imageFile?.name |filename}}
+      </span>
+    </label>
+    <button (click)="removeImage()" class="button is-danger is-light ml-2">Remove image</button>
+  </div>
+  <br>
+
+  <div class="columns">
+    <div class="column is-6">
+
+      <div class="tooltip">
+        <h1 class="is-size-5 color-darkblue my-2">Name</h1>
+        <span *ngIf="validate('name')" class="tag is-warning tooltip tooltiptext">This is mandatory.</span>
+      </div>
+
+      <input formControlName="name" class="input is-rounded input-fields" type="text"
+        placeholder="Enter your name">
+
+
+      <div class="tooltip">
+        <h1 class="is-size-5 color-darkblue my-2">Email address</h1>
+        <span *ngIf="validate('email')" class="tag is-warning tooltip tooltiptext">{{emailText}}</span>
+      </div>
+      <p class="control has-icons-right" (keyup)="onKeySearchEmail($event)" [ngClass]="{'is-loading ':isLoadingEmail}"
+        [ngClass]="{'is-loading ':user.controls['email'].pending}">
+        <input formControlName="email" class="input  input-fields is-rounded border-orange" type="email"
+          placeholder="Email address">
+        <span *ngIf="user.controls['email'].valid==true" [ngClass]="{'is-hidden':isLoadingEmail}"
+          class="icon is-small is-right has-text-success ">
+          <i class="fas fa-check"></i>
+        </span>
+        <span *ngIf="user.controls['email'].errors!=null" [ngClass]="{'is-hidden':isLoadingEmail}"
+          class="icon is-small is-right has-text-danger">
+          <i class="fa-solid fa-x"></i>
+        </span>
+      </p>
+
+      <div class="tooltip">
+        <h1 class="is-size-5 color-darkblue my-2">Username</h1>
+        <span *ngIf="validate('username')" class="tag is-warning tooltip tooltiptext">{{usernameText}}</span>
+      </div>
+      <p class="control has-icons-right" [ngClass]="{'is-loading ':isLoadingUsername}"
+        [ngClass]="{'is-loading ':user.controls['username'].pending}">
+        <input formControlName="username" (keyup)="onKeySearchUsername($event)"
+          class="input input-fields is-rounded border-orange" type="text" placeholder="Username">
+        <span *ngIf="user.controls['username'].valid==true" [ngClass]="{'is-hidden':isLoadingUsername}"
+          class="icon is-small is-right has-text-success">
+          <i class="fas fa-check"></i>
+        </span>
+        <span *ngIf="user.controls['username'].errors!=null" [ngClass]="{'is-hidden':isLoadingUsername}"
+          class="icon is-small is-right has-text-danger">
+          <i class="fa-solid fa-x"></i>
+        </span>
+      </p>
+
+    </div>
+    <div class="column is-6">
+
+      <div class="tooltip">
+        <h1 class="is-size-5 color-darkblue my-2">Password</h1>
+        <span *ngIf="validate('password')" class="tag is-warning tooltip tooltiptext">This is mandatory.</span>
+      </div>
+      <input formControlName="password" class="input is-rounded input-fields" type="password"
+        placeholder="Enter a password greater than 6 characters">
+
+      <div class="tooltip">
+        <h1 class="is-size-5 color-darkblue my-2">Confirm password</h1>
+        <span *ngIf="validate('confirmPassword')" class="tag is-warning tooltip tooltiptext">This is mandatory.</span>
+      </div>
+      <input formControlName="confirmPassword" class="input is-rounded input-fields" type="password"
+        placeholder="Enter a password greater than 6 characters">
+
+      <div class="tooltip">
+        <h1 class="is-size-5 color-darkblue my-2">Phone number</h1>
+        <span *ngIf="validate('phone')" class="tag is-warning tooltip tooltiptext">{{phoneText}}</span>
+      </div>
+
+      <input formControlName="phone" class="input is-rounded input-fields" type="number"
+        placeholder="Enter your phone number">
+
+    </div>
+  </div>
+  <div class="buttons is-justify-content-center">
+    <button (click)="editUsers()" [disabled]="user.valid==false"
+      class="button is-rounded background-color-orange has-text-white is-size-5 m-3">Edit
+      user</button>
+  </div>
+
+</form>

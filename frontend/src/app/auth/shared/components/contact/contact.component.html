@@ -1,0 +1,104 @@
+<section class="section" id="contact">
+  <div class="columns">
+    <div class="column is-7" data-aos="fade-right" data-aos-anchor-placement="top-center">
+      <div class="hero-body has-text-centered-mobile">
+        <p class="primary-text title is-1-desktop is-3-tablet is-size-1-mobile ">
+          Contact us
+        </p>
+      </div>
+
+      <form [formGroup]="contact" class="form-contact">
+
+        <div class="columns">
+          <div class="column">
+            <div class="tooltip">
+              <h1 class="is-size-4">Full Name</h1>
+              <span *ngIf="validate('name')" class="tag is-warning tooltip tooltiptext">This is mandatory</span>
+            </div>
+            <p class="control has-icons-left has-icons-right my-3">
+              <input formControlName="name" class="input is-rounded border-orange" type="text"
+                placeholder="Full Name">
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-circle-user"></i>
+              </span>
+            </p>
+            <div class="tooltip">
+              <h1 class="is-size-4">Subject</h1>
+              <span *ngIf="validate('subject')" class="tag is-warning tooltip tooltiptext">This is mandatory</span>
+            </div>
+            <p class="control has-icons-left has-icons-right my-3">
+              <input formControlName="subject" class="input is-rounded border-orange" type="text"
+                placeholder="Subject details">
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-paper-plane"></i>
+              </span>
+            </p>
+          </div>
+          <div class="column">
+            <div class="tooltip">
+              <h1 class="is-size-4">Phone number</h1>
+              <span *ngIf="validate('phone')" class="tag is-warning tooltip tooltiptext">{{phoneText}}</span>
+            </div>
+            <p class="control has-icons-left has-icons-right my-3">
+              <input formControlName="phone" class="input is-rounded border-orange" type="number"
+                placeholder="Phone number">
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+            </p>
+            <div class="tooltip">
+              <h1 class="is-size-4">Email address</h1>
+              <span *ngIf="validate('email')" class="tag is-warning tooltip tooltiptext">{{emailText}}</span>
+            </div>
+            <p class="control has-icons-left has-icons-right my-3">
+              <input type="email" formControlName="email" class="input is-rounded border-orange"
+                placeholder="Email address example: example@gmail.com">
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+
+        </div>
+        <div class="tooltip">
+          <h1 class="is-size-4">Message</h1>
+          <span *ngIf="validate('message')" class="tag is-warning tooltip tooltiptext">This is mandatory</span>
+        </div>
+        <div class="control ">
+          <textarea formControlName="message" class="textarea has-fixed-size borders "
+            placeholder="Message details"></textarea>
+        </div>
+        <div class="has-text-centered">
+          <form id="my-contact-form" action="https://usebasin.com/f/40cefd678597" method="POST">
+
+            <div class="is-invisible">
+              <input type="text" name="nombre" value="{{contact.value['name']}}">
+              <input type="text" name="asunto" value="{{contact.value['subject']}}">
+              <input type="text" name="celular" value="{{contact.value['phone']}}">
+              <input type="email" name="correo" value="{{contact.value['email']}}">
+              <input type="text" name="mensaje" value="{{contact.value['message']}}">
+            </div>
+            <button type="submit" [disabled]="!contact.valid"
+              class="button is-rounded background-color-orange has-text-white is-size-5 m-3 has-text-centered	">
+              <span>Send</span>
+              <span class="icon is-small">
+                <i class="fas fa-check"></i>
+              </span>
+            </button>
+            <div id="form-message"></div>
+          </form>
+        </div>
+      </form>
+    </div>
+    <div class="column is-hidden-mobile" data-aos="zoom-in-left" data-aos-anchor-placement="top-center">
+      <section class="section">
+        <figure class="image is-4by5">
+          <img class="borders box-shadow"
+            src="https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="">
+        </figure>
+      </section>
+
+    </div>
+  </div>
+</section>
