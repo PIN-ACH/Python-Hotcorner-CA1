@@ -17,7 +17,6 @@ app.config["JWT_SECRET_KEY"] = "_2GVZxiQ3vwLb63sG9WsN8nL_vMZSKKeKTf9vr0pOovRujg4
 jwt = JWTManager(app)
 app.config['JSON_SORT_KEYS'] = False
 whitelistIP="http://127.0.0.1"
-# replace in payload to new 192.168.198.133:8081
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
                             database='fooddb',
