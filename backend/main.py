@@ -11,9 +11,9 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
-CORS(app)                #####remove after token is fixed
+CORS(app)                
 
-app.config["JWT_SECRET_KEY"] = "_2GVZxiQ3vwLb63sG9WsN8nL_vMZSKKeKTf9vr0pOovRujg4EDXwmqRIp2uW"  # Change this!
+app.config["JWT_SECRET_KEY"] = "_2GVZxiQ3vwLb63sG9WsN8nL_vMZSKKeKTf9vr0pOovRujg4EDXwmqRIp2uW" 
 jwt = JWTManager(app)
 app.config['JSON_SORT_KEYS'] = False
 whitelistIP="http://127.0.0.1"
@@ -23,8 +23,7 @@ def get_db_connection():
                             database='fooddb',
                             user='postgres',
                             password='UserappPass@853')
-#                            user='root',
-#                            password='Root1385!@sdF')
+
     return conn
 def home():
     date = datetime.now()
@@ -199,9 +198,6 @@ def verifyCustomerName(usrname):
         container['message']='The user called does not exist'
     else:
         Result['username']=opt[0]
-        # for entry in opt:
-        #   Result={}
-        #   Result['username']=entry[0]
         products['User']=Result
         container['timeStamp']=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         container['statusCode']=200
@@ -236,9 +232,6 @@ def verifyCustomereMail(email):
         container['message']='The User with mail does not exist'
     else:
         Result['email']=opt[0]
-        # for entry in opt:
-        #   print (entry[0])
-        #   Result['email']=entry[0]
         products['User']=Result
         container['timeStamp']=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         container['statusCode']=200
@@ -255,7 +248,7 @@ def verifyCustomereMail(email):
     conn.close()
 
 
-@app.route('/api/v1/login', methods=['POST'])            #####roles   and db check for password and tokens   
+@app.route('/api/v1/login', methods=['POST'])               
 def login():
     container={}
     conn = get_db_connection()
@@ -318,7 +311,7 @@ def login():
     conn.close()
 
 
-@app.route('/api/v1/token-refresh', methods=['GET'])              ###cors error correct
+@app.route('/api/v1/token-refresh', methods=['GET'])             
 @jwt_required(refresh=True)
 def tokenrefresh():
     identity = get_jwt_identity()
@@ -343,81 +336,6 @@ def tokenrefresh():
     return resreturn
     cur.close()
     conn.close()
-
-
-# @app.route('/api/v1/user/', methods=['POST'])
-# def createUser():
-#     container={}
-#     conn = get_db_connection()
-#     cur = conn.cursor()
-#     datadict = request.form['request']
-#     formData =  json.loads(datadict)
-#     print (formData)
-#     print (type(formData))
-#     id_User = formData["idUser"]
-#     username = formData["username"]
-#     name = formData["name"]
-#     urlImage = ["urlImage"]
-#     phone = formData["phone"]
-#     email = formData["email"]
-#     password = formData["password"]
-#     pwd_hash = generate_password_hash(password)
-#     discountPoint = formData["discountPoint"]
-#     intuserRoles = formData["userRoles"]
-#     userName = formData["username"]
-#     userstatus = formData["status"]
-#     if userstatus=="ACTIVE":
-#         status=1
-#     else:
-#         status=0
-#     if intuserRoles == "ROLE_ADMIN":
-#                         userRoles=0
-#     elif intuserRoles == "ROLE_EMPLOYEE":
-#                         userRoles=1
-#     elif intuserRoles == "ROLE_CLIENT":
-#                         userRoles=2
-#     cur.execute("""INSERT INTO
-#         user_app (
-#                 id_user,
-#                 discount_point,
-#                 email,
-#                 name,
-#                 password,
-#                 phone,
-#                 status,
-#                 user_roles,
-#                 username)
-#     VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)""", (id_User,discountPoint,email,name,pwd_hash,phone,status,userRoles,username))
-#     conn.commit()
-#     # opt = cur.fetchone()[0]
-#     # print(opt)
-#     tokendict={}
-#     datadict={}
-#     resultdict={}
-#     container['timeStamp']=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-#     container['statusCode']=200
-#     container['status']="OK"
-#     container['message']="Create user"
-#     tokendict['idUser']=id_User
-#     tokendict['name']=name
-#     tokendict['username']=username
-#     tokendict['urlImage']=None
-#     tokendict['phone']=phone
-#     tokendict['email']=email
-#     tokendict['password']=pwd_hash
-#     tokendict['discountPoint']=discountPoint
-#     tokendict['userRoles']=intuserRoles
-#     tokendict['status']=userstatus
-#     datadict['user']=tokendict
-#     container['data']=datadict
-#     resreturn=app.response_class(
-#     response=json.dumps(container),
-#     mimetype='application/json'
-#     )
-#     resreturn.headers.add('Access-Control-Allow-Origin', whitelistIP)
-#     return resreturn
-#     cur.close()
-#     conn.close()
 
 
 @app.route('/api/v1/user/', methods=['POST'])
@@ -470,7 +388,7 @@ def createUser():
     cur.close()
     conn.close()
 
-@app.route('/api/v1/token-refresh/user', methods=['GET'])              ###cors error correct
+@app.route('/api/v1/token-refresh/user', methods=['GET'])   
 @jwt_required(refresh=True)
 def tokenrefresuserh():
     identity = get_jwt_identity()
